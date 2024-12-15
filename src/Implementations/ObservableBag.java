@@ -4,9 +4,8 @@ import interfaces.Bag;
 import interfaces.SubjectBag;
 
 import java.util.*;
-import java.util.function.Consumer;
 
-public class ObservableBag implements Bag, SubjectBag {
+public class ObservableBag implements Bag, SubjectBag, Iterable<String> {
     public Map<String, Integer> bag;
     public List<BagObserver> observers;
 
@@ -19,14 +18,14 @@ public class ObservableBag implements Bag, SubjectBag {
     public void add(String s) {
         if (bag.get(s) == null) bag.put(s, 1);
         else bag.put(s, bag.get(s) + 1);
-        update(s);
+        notify(s);
     }
 
     @Override
     public void remove(String s) {
         if (bag.get(s) != null) {
             bag.put(s, bag.get(s) - 1);
-            update(s);
+            notify(s);
         }
     }
 
@@ -51,7 +50,7 @@ public class ObservableBag implements Bag, SubjectBag {
     }
 
     @Override
-    public void update(String s) {
+    public void notify(String s) {
         int i = bag.get(s);
         for (BagObserver observer : observers) {
             observer.update(s, i);

@@ -15,6 +15,8 @@ public class App {
         bag.add("yo");
         bag.add("yo");
         bag.removeObs(bo);
-
+        for (String s : bag) {
+            System.out.println(s);
+        }
     }
 }
