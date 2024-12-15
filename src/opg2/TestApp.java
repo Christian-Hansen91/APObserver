@@ -1,29 +1,35 @@
 package opg2;
 
 import opg2.implementations.Book;
+import opg2.implementations.Buyer;
 import opg2.implementations.Customer;
+import opg2.implementations.Salesman;
 
 public class TestApp {
 
     public static void main(String[] args) {
-        // TODO: create a salesman and a purchaser
+        Salesman salesman = new Salesman("christian");
+        Buyer buyer = new Buyer("også christian");
 
         Book donaldDuck = new Book("Donald Duck");
-        // TODO: add observers
+        donaldDuck.addObserver(salesman);
+        donaldDuck.addObserver(buyer);
 
-        // TODO: make purchaser buy 6 copies of donaldDuck
+        buyer.buyBook(donaldDuck, 6);
         System.out.println();
 
         Book java = new Book("Java");
-        // TODO: add observers
+        java.addObserver(salesman);
+        java.addObserver(buyer);
 
-        // TODO: make purchaser buy 8 copies of java
+        buyer.buyBook(java, 8);
         System.out.println();
 
         Book designPatterns = new Book("Design Patterns");
-        // TODO: add observers
+        designPatterns.addObserver(buyer);
+        designPatterns.addObserver(salesman);
 
-        // TODO: make purchaser buy 10 copies of designPatterns
+        buyer.buyBook(designPatterns, 10);
         System.out.println();
 
         Customer bob = new Customer("Bob");
@@ -48,13 +54,21 @@ public class TestApp {
 
         makeSale(designPatterns, bob);
         System.out.println();
-
-        // TODO: print each customer and his/her books
+        for (Book book : bob.getBooks()) {
+            System.out.println("bob's book: " + book);
+        }
+        for (Book book : alice.getBooks()) {
+            System.out.println("alice's book: " + book);
+        }
+        for (Book book : harry.getBooks()) {
+            System.out.println("harry's book: " + book);
+        }
     }
 
     public static void makeSale(Book b, Customer c) {
         System.out.println("Sale: " + b + " sold to " + c.getName());
-        // TODO: link customer and book
+        b.addCustomer(c);
+        c.addBook(b);
         b.decCount(1);
     }
 }

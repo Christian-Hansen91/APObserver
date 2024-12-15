@@ -26,4 +26,7 @@ public class Customer {
             book.addCustomer(this);
         }
     }
+    public List<Book> getBooks() {
+        return new ArrayList<>(books);
+    }
 }

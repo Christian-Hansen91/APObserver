@@ -1,6 +1,8 @@
 package opg2.implementations;
 
-public class Buyer {
+import opg2.interfaces.BookObserver;
+
+public class Buyer implements BookObserver {
     private final String name; // not empty
 
     public Buyer(String name) {
@@ -10,5 +12,12 @@ public class Buyer {
     public void buyBook(Book b, int amount) {
         b.incCount(amount);
         System.out.println("Buyer " + name + ": " + b + ", " + amount + " copies");
+    }
+
+    @Override
+    public void update(Book book) {
+        if(book.getCount() < 6) {
+            buyBook(book, 10);
+        }
     }
 }

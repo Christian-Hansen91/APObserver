@@ -7,11 +7,11 @@ import java.util.*;
 
 public class ObservableBag implements Bag, SubjectBag, Iterable<String> {
     private Map<String, Integer> bag;
-    private List<BagObserver> observers;
+    private Set<BagObserver> observers;
 
     public ObservableBag() {
         this.bag = new HashMap<>();
-        this.observers = new ArrayList<>();
+        this.observers = new HashSet<>();
     }
 
     @Override
