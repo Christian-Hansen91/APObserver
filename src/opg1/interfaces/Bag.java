@@ -1,4 +1,4 @@
-package interfaces;
+package opg1.interfaces;
 
 import java.util.Iterator;
 

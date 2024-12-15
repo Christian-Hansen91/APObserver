@@ -1,6 +1,6 @@
-package interfaces;
+package opg1.interfaces;
 
-import Implementations.BagObserver;
+import opg1.Implementations.BagObserver;
 
 public interface SubjectBag {
     public void addObs(BagObserver bo);

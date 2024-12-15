@@ -1,13 +1,13 @@
-package Implementations;
+package opg1.Implementations;
 
-import interfaces.Bag;
-import interfaces.SubjectBag;
+import opg1.interfaces.Bag;
+import opg1.interfaces.SubjectBag;
 
 import java.util.*;
 
 public class ObservableBag implements Bag, SubjectBag, Iterable<String> {
-    public Map<String, Integer> bag;
-    public List<BagObserver> observers;
+    private Map<String, Integer> bag;
+    private List<BagObserver> observers;
 
     public ObservableBag() {
         this.bag = new HashMap<>();
@@ -36,7 +36,7 @@ public class ObservableBag implements Bag, SubjectBag, Iterable<String> {
 
     @Override
     public Iterator iterator() {
-        return bag.entrySet().iterator();
+        return bag.keySet().iterator();
     }
 
     @Override

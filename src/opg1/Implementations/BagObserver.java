@@ -1,7 +1,6 @@
-package Implementations;
+package opg1.Implementations;
 
-import interfaces.ObserverInterface;
-import interfaces.SubjectBag;
+import opg1.interfaces.ObserverInterface;
 
 public class BagObserver implements ObserverInterface {
     @Override

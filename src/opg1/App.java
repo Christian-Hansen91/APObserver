@@ -1,7 +1,7 @@
-import Implementations.BagObserver;
-import Implementations.ObservableBag;
-import interfaces.Bag;
-import interfaces.ObserverInterface;
+package opg1;
+
+import opg1.Implementations.BagObserver;
+import opg1.Implementations.ObservableBag;
 
 public class App {
     public static void main(String[] args) {
